@@ -21,24 +21,25 @@ struct ContentView: View {
 
 
 struct CardView: View {
-    var isFaceup: Bool = false
+    @State var isFaceup = false
     var body: some View {
-       ZStack(content: {
+       ZStack{
+           let base = RoundedRectangle(cornerRadius:12)
+          
            if isFaceup{
-               RoundedRectangle(cornerRadius:12)
-                   .foregroundColor(.white)
-               RoundedRectangle(cornerRadius: 12)
-                   .strokeBorder(lineWidth: 2)
+               base.fill(.white)
+               base.strokeBorder(lineWidth: 2)
                Text("MakeitCount").font(.largeTitle)
            }
            else{
-               RoundedRectangle(cornerRadius: 12)
+               base
                Text("MakeitCount").font(.largeTitle)
                    .foregroundColor(.white)
-            
-            
            }
-       })
+       }
+       .onTapGesture {
+           isFaceup.toggle()
+       }
         
     }
 }
