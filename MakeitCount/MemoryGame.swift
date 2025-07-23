@@ -71,3 +71,5 @@ struct MemoryGame<CardContent> where CardContent: Equatable{
 
     }
 }
+
+
